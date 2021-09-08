@@ -1,0 +1,34 @@
+{
+  "name": "pm2-pino-gelf",
+  "version": "1.0.0",
+  "description": "Send pino gelf logs into graylog with pm2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "pm2",
+    "pino",
+    "gelf"
+  ],
+  "author": "deziev",
+  "license": "ISC",
+  "dependencies": {
+    "pino-gelf": "2.0.0",
+    "pm2": "^5.1.1",
+    "pmx": "^1.6.7"
+  },
+  "config": {
+    "gelfCustomKeys": [],
+    "grayLogHost": "127.0.0.1",
+    "grayLogPort": 12201,
+    "maxChunkSize": 1420
+  },
+  "apps": [
+    {
+      "merge_logs": true,
+      "max_memory_restart": "200M",
+      "script": "index.js"
+    }
+  ]
+}
